@@ -1,0 +1,6 @@
+{
+  "name": "RTHVX - Modern E-Commerce",
+  "description": "Discover Products You'll Love - Premium modern fashion, electronics, and lifestyle store.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
