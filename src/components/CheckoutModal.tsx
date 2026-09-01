@@ -253,43 +253,58 @@ export const CheckoutModal: React.FC = () => {
                   <div className="grid grid-cols-3 gap-2">
                     <button
                       type="button"
-                      onClick={() => setPaymentMethod('upi')}
-                      className={`p-3 rounded-xl border flex flex-col items-center gap-1.5 transition-all text-xs font-bold ${
-                        paymentMethod === 'upi'
-                          ? 'border-[#FF5500] bg-orange-50/40 text-neutral-950'
+                      onClick={() => setPaymentMethod('cod')}
+                      className={`p-3 rounded-xl border flex flex-col items-center gap-1.5 transition-all text-xs font-bold cursor-pointer ${
+                        paymentMethod === 'cod'
+                          ? 'border-[#FF5500] bg-orange-50/40 text-neutral-950 ring-1 ring-[#FF5500]'
                           : 'border-neutral-200 hover:border-neutral-400 text-neutral-600'
                       }`}
                     >
-                      <Smartphone className="w-4 h-4 text-[#FF5500]" />
+                      <Truck className="w-4 h-4 text-[#FF5500]" />
+                      <span>Cash on Delivery</span>
+                      <span className="text-[9px] font-normal text-emerald-600 bg-emerald-50 px-1.5 py-0.2 rounded">No Card Needed</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setPaymentMethod('upi')}
+                      className={`p-3 rounded-xl border flex flex-col items-center gap-1.5 transition-all text-xs font-bold cursor-pointer ${
+                        paymentMethod === 'upi'
+                          ? 'border-[#FF5500] bg-orange-50/40 text-neutral-950 ring-1 ring-[#FF5500]'
+                          : 'border-neutral-200 hover:border-neutral-400 text-neutral-600'
+                      }`}
+                    >
+                      <Smartphone className="w-4 h-4 text-neutral-900" />
                       <span>UPI / QR</span>
+                      <span className="text-[9px] font-normal text-neutral-400">Optional</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setPaymentMethod('card')}
-                      className={`p-3 rounded-xl border flex flex-col items-center gap-1.5 transition-all text-xs font-bold ${
+                      className={`p-3 rounded-xl border flex flex-col items-center gap-1.5 transition-all text-xs font-bold cursor-pointer ${
                         paymentMethod === 'card'
-                          ? 'border-[#FF5500] bg-orange-50/40 text-neutral-950'
+                          ? 'border-[#FF5500] bg-orange-50/40 text-neutral-950 ring-1 ring-[#FF5500]'
                           : 'border-neutral-200 hover:border-neutral-400 text-neutral-600'
                       }`}
                     >
                       <CreditCard className="w-4 h-4 text-neutral-900" />
                       <span>Card / NetBank</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setPaymentMethod('cod')}
-                      className={`p-3 rounded-xl border flex flex-col items-center gap-1.5 transition-all text-xs font-bold ${
-                        paymentMethod === 'cod'
-                          ? 'border-[#FF5500] bg-orange-50/40 text-neutral-950'
-                          : 'border-neutral-200 hover:border-neutral-400 text-neutral-600'
-                      }`}
-                    >
-                      <Truck className="w-4 h-4 text-neutral-900" />
-                      <span>Cash on Delivery</span>
+                      <span className="text-[9px] font-normal text-neutral-400">Optional</span>
                     </button>
                   </div>
+
+                  {paymentMethod === 'cod' && (
+                    <div className="space-y-1.5 bg-emerald-50/60 p-3.5 rounded-2xl border border-emerald-200/60 text-xs">
+                      <div className="flex items-center gap-2 text-emerald-800 font-bold">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        <span>Pay on Delivery (No Billing Account / Card Required)</span>
+                      </div>
+                      <p className="text-[11px] text-emerald-700">
+                        Order receive hone par cash ya UPI se pay karein. Billing account add karna bilkul optional hai.
+                      </p>
+                    </div>
+                  )}
 
                   {paymentMethod === 'upi' && (
                     <div className="space-y-2 bg-neutral-50 p-3.5 rounded-2xl border border-neutral-200">
